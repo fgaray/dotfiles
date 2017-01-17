@@ -1,0 +1,31 @@
+#compilaciones
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.jar
+*.pyc
+*hi
+
+#No queremos tener archivos binarios
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+*.apk
+
+#Otros
+*.log
+tags
+
+
+#OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db

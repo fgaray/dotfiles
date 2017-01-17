@@ -1,0 +1,47 @@
+[user]
+	name = Felipe Garay
+	email = felipe.garay@usach.cl
+[diff]
+	tool = vimdiff
+[core]
+	excludesfile = /home/felipe/.gitignore
+	editor = /usr/bin/vim
+
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  co = checkout
+  st = status
+  br = branch
+  df = diff
+  mg = merge --squash # al hacer merge juntamos todo en un solo commit
+  pl = pull --rebase # unimos todos los commits linealmente, opcion preferida al actualizar
+  rb = rebase
+  finalizar = merge --no-ff # mezcla la branch utilizando un commit
+  wdiff = diff --word-diff # hace un diff pero solo de las palabras
+  ldiff = difftool -t latex  
+  delete = reset --hard HEAD~1
+  ignored = check-ignore -v *
+;[branch]
+	;autosetuprebase = always
+[push]
+	default = simple
+
+
+[difftool.latex]
+        cmd = git-latexdiff \"$LOCAL\" \"$REMOTE\"
+[difftool]
+        prompt = false
+[alias]
+  ldiff = difftool -t latex   
+  nosotros = checkout --ours --
+  ellos = checkout --theirs --
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f

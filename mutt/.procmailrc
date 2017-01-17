@@ -1,0 +1,8 @@
+SHELL = /bin/bash
+PATH = /usr/local/bin:/usr/bin:/bin:$PATH
+DATE = `date +%m_%d_%Y`
+MAILDIR = $HOME/Maildir
+DEFAULT = $MAILDIR
+LOGFILE = $HOME/.procmail.log
+LOG = 
+VERBOSE = yes

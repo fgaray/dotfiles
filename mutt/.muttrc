@@ -1,0 +1,74 @@
+set realname='Felipe Garay'
+send-hook . "my_hdr From: Felipe Garay <felipe.garay@usach.cl>"
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set move = no
+set mail_check=60
+# use utf8
+set charset=UTF8
+set edit_headers=yes
+set sendmail="~/bin/msmtpQ"
+set envelope_from=yes
+
+
+##MACROS
+##Con M marcamos todo como marcado
+macro index M "T.*\n;WN" "Mark all messages as read"
+
+##Con W guardamos los adjuntos
+macro attach W <save-entry><kill-line>/home/felipe/Downloads/
+macro attach E <save-entry><kill-line>/home/felipe/Downloads/<enter>
+
+
+##sort en orden logico
+set sort=threads
+set sort_aux=reverse-last-date-received
+
+macro index,pager y <change-folder>?<toggle-mailboxes>
+
+### bindings ~ vim like
+bind pager i exit
+bind pager / search
+bind pager <up> previous-line
+bind pager <down> next-line
+bind pager k previous-line
+bind pager j next-line
+bind pager gg top
+bind pager G bottom
+bind index gg first-entry
+bind index G last-entry
+bind pager K previous-undeleted
+bind pager J next-undeleted
+bind index K previous-unread
+bind index J next-unread
+bind index,pager R group-reply
+bind index "^" imap-fetch-mail
+
+
+## HTML
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+set quit=ask-yes
+
+
+
+################################################################################
+
+set mbox_type=Maildir
+
+set spoolfile="~/Maildir/"
+set folder="~/Maildir/"
+set mask="!^\\.[^.]"
+set record="+.Sent"
+set postponed="+.Drafts"
+
+mailboxes ! + `\
+for file in ~/Maildir/.*; do \
+box=$(basename "$file"); \
+if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+-a ! "$box" = '.subscriptions' ]; then \
+echo -n "\"+$box\" "; \
+fi; \
+done`
