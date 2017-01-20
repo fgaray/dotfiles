@@ -200,19 +200,10 @@ alias fix-display="export DISPLAY=$(ps aux | grep Xorg | grep usr | awk '{ print
 
 alias arduino-monitor='echo "sallir con C-A C-Q"; sudo picocom -b 9600 /dev/ttyACM0'
 
-alias mars="java -jar $HOME/Documentos/U/orga/ayudantia/Mars4_5\(1\).jar"
-
-
 alias sendmail="msmptq -r"
 
 alias run-compile=make
 alias run-test='make test'
-
-#alias gcp='rsync -r -a --info=progress2'
-
-alias camara='cvlc rtsp://felipe:canela@192.168.0.110:88/videoMain'
-
-alias vim=nvim
 
 alias hdfs='sudo mount -t nfs -o vers=3,proto=tcp,nolock,noacl,sync 192.168.0.105:/ /mnt'
 
