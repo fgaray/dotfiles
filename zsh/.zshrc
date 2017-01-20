@@ -158,6 +158,8 @@ alias halt="sudo poweroff"
 
 alias mac="ssh 158.170.35.22"
 
+alias citiaps2="ssh felipe@158.170.35.88"
+
 
 # Otros
 alias prou="cd $HOME/programacion/u/"
