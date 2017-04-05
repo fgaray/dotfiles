@@ -12,9 +12,12 @@ zstyle :compinstall filename '/home/felipe/.zshrc'
 #Vi mode
 bindkey -v
 
-bindkey -s '^B' 'run-compile\n'
-bindkey -s '^N' 'run-test\n'
-bindkey -s '^K' 'run-compile && run-test\n'
+#bindkey -s '^B' 'run-compile\n'
+#bindkey -s '^N' 'run-test\n'
+#bindkey -s '^K' 'run-compile && run-test\n'
+
+bindkey -s '^O' 'go_back\n'
+bindkey -s '^P' 'go_forward\n'
 
 #Case insensitive globbing
 setopt NO_CASE_GLOB
@@ -159,6 +162,7 @@ alias halt="sudo poweroff"
 alias mac="ssh 158.170.35.22"
 
 alias citiaps2="ssh felipe@158.170.35.88"
+alias citiaps1="ssh felipe@158.170.35.87"
 
 
 # Otros
@@ -177,14 +181,13 @@ alias set_caps_lock="setxkbmap -option caps:escape"
 xmodmap ~/.Xmodmap 2>> /dev/null
 
 
-alias docker="sudo docker"
-alias rmc="sudo docker rm"
+#alias docker="sudo docker"
 
 alias serve='twistd -no web --path=.'
 alias fm='ranger'
 alias scp='scp -C'
 
-sudo hdparm -B 255 /dev/sda > /dev/null
+#sudo hdparm -B 255 /dev/sda > /dev/null
 alias hdparm="sudo hdparm -B 255 /dev/sda > /dev/null"
 
 alias ls='ls -X --color=auto --group-directories-first'
@@ -216,6 +219,7 @@ alias java8="sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd
 alias clone="git clone --depth=1"
 
 alias gen-pass="apg -a 1 -m 6 -x 10 -M NCL -c /dev/urandom"
+
 
 
 #}}}
@@ -343,7 +347,7 @@ function captura {
 function mount-ssh {
   # TODO: Detectar si es la red local, en caso de que sea entonces montar sin
   # compresion y usando la ip local
-  sshfs root@192.168.0.105:/ nfs -o reconnect
+  sshfs root@192.168.1.105:/ nfs -o reconnect
 }
 
 
@@ -376,6 +380,19 @@ function reset-pulse {
     sudo kill -9 $(pgrep pulseaudio)
 }
 
+
+function go_back {
+  pushd $(pwd)
+  cd ..
+}
+
+
+function go_forward {
+  popd
+}
+
+
+
 source $HOME/.zsh_alias/task_warrior.sh
 
 
@@ -385,3 +402,5 @@ source $HOME/.zsh_alias/task_warrior.sh
 
 # OPAM configuration
 . /home/felipe/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+source $HOME/.nix-profile/etc/profile.d/nix.sh
