@@ -48,10 +48,10 @@ feh --bg-scale Imagenes/haskell.png &
 wmname LG3
 
 setxkbmap latam
-xmonad &
+.xmonad/xmonad-x86_64-linux
 wmname LG3
 termite -e tmux &
-firefox &
+firefox-esr &
 #sudo hdparm -B 255 /dev/sda > /dev/null
 wmname LG3
 
