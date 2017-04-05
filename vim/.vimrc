@@ -37,8 +37,9 @@
    " Ariline!!
    Plugin 'bling/vim-airline'
 
+   Plugin 'mbbill/undotree'
  
-   "Plugin 'eafgarland/typescript-vim'
+   Plugin 'eafgarland/typescript-vim'
    "Plugin 'Quramy/tsuquyomi'
    "Plugin 'Shougo/vimproc.vim'
 
@@ -235,8 +236,8 @@ set ofu=syntaxcomplete#Complete
 	nnoremap <F7> :buffers<CR>:to sb <Space>
 
 	"Para movernos por los errores
-	nnoremap <Leader>p :cp<CR>
-	nnoremap <Leader>n :cn<CR>
+	nnoremap <Leader>p "+p
+	"nnoremap <Leader>y :cn<CR>
 
 	"Alt keys: Activa o desactiva ciertas funcionalidades
 	nnoremap <A-n> :setlocal number!<CR>
@@ -302,7 +303,7 @@ set ofu=syntaxcomplete#Complete
   map <leader>gf :e <cfile><CR>
 
   "Gudardar rapidamente
-  noremap <leader>s :update<CR>
+  noremap <leader>s :wa<CR>
 
 "}}}
 
