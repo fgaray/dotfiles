@@ -32,15 +32,16 @@ myTerminal = "termite"
 -- Usamos tecla windows en vez de alt
 myModMask = mod4Mask
 
--- Hooks
+-- Hooks. Usar xprop para obtener el WM_CLASS
 myManageHook = composeAll
         [ className =? "Iceweasel" --> doShift "1:web"
         , className =? "Firefox" --> doShift "1:web"
+        , className =? "Firefox-esr" --> doShift "1:web"
         , className =? "Termite" --> doShift "2:consola"
         , className =? "Gvim" --> doShift "3:gvim"
-        , className =? "Apvlv" --> doShift "4:pdfs"
+        , className =? "Apvlv" --> doShift "3:pdfs"
+        , className =? "Evince" --> doShift "3:pdfs"
         , className =? "Pidgin" --> doShift "9:float"
-        , className =? "Omnetpp" --> doShift "8:float"
         , manageDocks
         ]
         --where viewShift = doF . liftM2 (.) W.greedyView W.shift
