@@ -223,8 +223,11 @@ alias gen-pass="apg -a 1 -m 6 -x 10 -M NCL -c /dev/urandom"
 
 
 #}}}
+#
+#
+export ANDROID_HOME=/home/felipe/Downloads/
 
-PATH=/home/felipe/Downloads/node-v5.5.0-linux-x64/bin/:/home/felipe/Downloads/scala-2.11.6/bin/:$HOME/programacion/u/pingeso/gradle-2.1/bin:$HOME/bin:$HOME/.cabal/bin:/home/felipe/Downloads/android-sdk-linux/tools/:/home/felipe/Downloads/android-sdk-linux/platform-tools/:/opt/cisco/anyconnect/bin/:/home/felipe/.local/bin/:$PATH
+PATH=/home/felipe/Downloads/scala-2.11.6/bin/:$ANDROID_HOME:/opt/cisco/anyconnect/bin/:/home/felipe/.local/bin/:$PATH
 
 
 
@@ -232,7 +235,6 @@ PATH=/home/felipe/Downloads/node-v5.5.0-linux-x64/bin/:/home/felipe/Downloads/sc
 #export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Para android
-#export ANDROID_HOME=/home/felipe/Downloads/android-sdk-linux
 
 #export XDG_CONFIG_HOME="$HOME/.config"
 
