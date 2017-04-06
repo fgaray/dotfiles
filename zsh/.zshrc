@@ -404,5 +404,3 @@ source $HOME/.zsh_alias/task_warrior.sh
 
 # OPAM configuration
 . /home/felipe/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-source $HOME/.nix-profile/etc/profile.d/nix.sh
