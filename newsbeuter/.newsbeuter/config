@@ -1,5 +1,5 @@
 auto-reload yes
-reload-time 30
+reload-time 60
 cleanup-on-quit yes
 confirm-exit yes
 max-items 100

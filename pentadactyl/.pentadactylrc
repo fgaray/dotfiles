@@ -13,3 +13,5 @@ hi FontFixed -append font-size: 9pt !important;
 
 " Font hints
 hi -a Hint font-size: 10pt !important;
+
+set defsearch=duckduckgo

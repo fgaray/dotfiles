@@ -199,7 +199,7 @@ alias ghci="nocorrect ghci"
 alias stack="nocorrect stack"
 
 
-alias fix-display="export DISPLAY=$(ps aux | grep Xorg | grep usr | awk '{ print $14}')"
+alias fix-display="export DISPLAY=:0"
 
 alias arduino-monitor='echo "sallir con C-A C-Q"; sudo picocom -b 9600 /dev/ttyACM0'
 
@@ -220,6 +220,7 @@ alias clone="git clone --depth=1"
 
 alias gen-pass="apg -a 1 -m 6 -x 10 -M NCL -c /dev/urandom"
 
+alias odroid="ssh root@odroidc1-001e06c2b2bf"
 
 
 #}}}
@@ -227,7 +228,7 @@ alias gen-pass="apg -a 1 -m 6 -x 10 -M NCL -c /dev/urandom"
 #
 export ANDROID_HOME=/home/felipe/Downloads/
 
-PATH=/home/felipe/Downloads/scala-2.11.6/bin/:$ANDROID_HOME:/opt/cisco/anyconnect/bin/:/home/felipe/.local/bin/:$PATH
+PATH=/home/felipe/Downloads/scala-2.11.6/bin/:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools/:/opt/cisco/anyconnect/bin/:/home/felipe/.local/bin/:$PATH
 
 
 
@@ -311,21 +312,21 @@ function rmac {
 function git-latexdiff {
   # git-latexdiff branch1
   
-  if [ "$#" -ne 1 ]
+  if [ "$#" -ne 2 ]
   then
-    echo "Usage: git-latexdiff ORIGINAL_BRANCH"
+    echo "Usage: git-latexdiff ORIGINAL_BRANCH FILE"  
     return 0
   fi
 
   CURRENT=$(git rev-parse --abbrev-ref HEAD)
   git stash
   git checkout $1
-  latexpand informe.tex > informe_viejo.tex
+  latexpand $2 > informe_viejo.tex
   git checkout $CURRENT
   git stash pop
-  latexpand informe.tex > informe_nuevo.tex
+  latexpand $2 > informe_nuevo.tex
   latexdiff -e utf8 informe_viejo.tex informe_nuevo.tex > diff.tex
-  #latexmk diff.tex
+  latexmk diff.tex
 }
 
 function gcall {
@@ -349,7 +350,7 @@ function captura {
 function mount-ssh {
   # TODO: Detectar si es la red local, en caso de que sea entonces montar sin
   # compresion y usando la ip local
-  sshfs root@192.168.1.105:/ nfs -o reconnect
+  sshfs root@odroidc1-001e06c2b2bf:/ nfs -o reconnect
 }
 
 
@@ -406,3 +407,9 @@ source $HOME/.zsh_alias/task_warrior.sh
 . /home/felipe/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 source $HOME/.nix-profile/etc/profile.d/nix.sh
+
+export JAVA_HOME=/usr
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/felipe/.sdkman"
+[[ -s "/home/felipe/.sdkman/bin/sdkman-init.sh" ]] && source "/home/felipe/.sdkman/bin/sdkman-init.sh"
