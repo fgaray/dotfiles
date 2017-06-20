@@ -17,7 +17,7 @@
 		"github
 
     " Para usar git en VIM
-		Plugin 'tpope/vim-fugitive'                     
+    Plugin 'tpope/vim-fugitive'                     
 
    " comenta cosas con <Leader>ci
    Plugin 'scrooloose/nerdcommenter'               
@@ -86,6 +86,9 @@
 
    Plugin 'raichoo/purescript-vim'
 
+   Plugin 'skywind3000/asyncrun.vim'
+
+   Plugin 'rust-lang/rust.vim'
 
    call vundle#end()            " required
    filetype plugin indent on    " required
@@ -435,3 +438,11 @@ endfunction
 "imap ii í
 "imap oo ó
 "imap uu ú
+
+
+source /home/felipe/programacion/no-U/haskell/vim-haskell-doc/vim-stack-documentation.vim
+
+nmap <Leader>h :call ShowHaskellDocumentation()<CR>
+nmap <Leader>b :call OpenHaskellDocumentation()<CR>
+nmap <Leader>hs :call HoogleSearchCursor()<CR>
+nmap <Leader>hh :call Hoogle()<CR>
