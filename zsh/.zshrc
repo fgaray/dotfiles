@@ -143,8 +143,6 @@ alias mutt='mutt -y'
 
 alias mplayer='mplayer -vo xv -vsync'
 
-#sudo
-alias please='sudo'
 
 #haskell
 alias clear_haskell='rm *.hi'
@@ -413,3 +411,10 @@ export JAVA_HOME=/usr
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/felipe/.sdkman"
 [[ -s "/home/felipe/.sdkman/bin/sdkman-init.sh" ]] && source "/home/felipe/.sdkman/bin/sdkman-init.sh"
+
+
+# Plugins..
+
+source $HOME/dotfiles/antigen/antigen.zsh
+antigen bundle "MichaelAquilina/zsh-you-should-use"
+antigen apply
