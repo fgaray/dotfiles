@@ -393,6 +393,8 @@ function go_forward {
 }
 
 
+alias hpack-convert-web='curl -F "cabalfile=@./`echo *.cabal`" https://hpack-convert.herokuapp.com > package.yaml'
+
 
 source $HOME/.zsh_alias/task_warrior.sh
 
