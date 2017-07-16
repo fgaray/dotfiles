@@ -43,6 +43,7 @@
    "Plugin 'Quramy/tsuquyomi'
    "Plugin 'Shougo/vimproc.vim'
 
+   Plugin 'majutsushi/tagbar'
 
    "colorschemes
    "Plugin 'tomasr/molokai'
@@ -292,16 +293,15 @@ set ofu=syntaxcomplete#Complete
 
   nnoremap <Leader>p :.!xsel<CR>
 
+  nnoremap <Leader>t :CtrlPTag<CR>
+
+
   map! <F1> <
   map! <F2> >
 
 
   " How do i
   nnoremap <Leader>hd :.!howdoi 
-
-  "Para los buffers
-  map <c-l> :CtrlPBuffer<CR>
-
 
   map <leader>gf :e <cfile><CR>
 
