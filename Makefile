@@ -1,5 +1,5 @@
 PROGRAMS:=$(wildcard *)
-PROGRAMS:=$(filter-out Makefile, $(PROGRAMS))
+PROGRAMS:=$(filter-out Makefile README.md, $(PROGRAMS))
 
 
 all:
