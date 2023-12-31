@@ -1,6 +1,0 @@
-set gui=nonavigation
-let mapleader=','
-
-inoremap <c-j> <CR>
-nnoremap <c-j> <CR>
-noremap <c-j> <CR>
